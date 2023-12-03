@@ -1,0 +1,34 @@
+2023/11/26 06:13:51 [INFO] Packer version: 1.6.6 [go1.18.1 linux arm64]
+2023/11/26 06:13:51 Checking 'PACKER_CONFIG' for a config file path
+2023/11/26 06:13:51 'PACKER_CONFIG' not set; checking the default config file path
+2023/11/26 06:13:51 Attempting to open config file: /root/.packerconfig
+2023/11/26 06:13:51 [WARN] Config file doesn't exist: /root/.packerconfig
+2023/11/26 06:13:51 Setting cache directory: /home/chimal2/Desktop/packer/packer_cache
+2023/11/26 06:13:51 waiting for all plugin processes to complete...
+panic: value is not a collection
+
+goroutine 1 [running]:
+github.com/zclconf/go-cty/cty.Value.LengthInt({{{0x3dc50e8?, 0x40000564ad?}}, {0x2c41f00?, 0x400058e980?}})
+	github.com/zclconf/go-cty/cty/value_ops.go:1012 +0x1ec
+github.com/zclconf/go-cty/cty.Value.AsValueMap({{{0x3dc50e8?, 0x40000564ad?}}, {0x2c41f00?, 0x400058e980?}})
+	github.com/zclconf/go-cty/cty/value_ops.go:1245 +0x68
+github.com/hashicorp/packer/hcl2template.(*Parser).decodeProvisioner(0x4000498140, 0x40000b4000, 0x40000f8b40?)
+	github.com/hashicorp/packer/hcl2template/types.build.provisioners.go:109 +0x97c
+github.com/hashicorp/packer/hcl2template.(*Parser).decodeBuildConfig(0x2ebbc00?, 0x4000497c70, 0x400073f598?)
+	github.com/hashicorp/packer/hcl2template/types.build.go:126 +0x454
+github.com/hashicorp/packer/hcl2template.(*Parser).decodeConfig(0x400001d200?, 0x4000320c00, 0x400001d200)
+	github.com/hashicorp/packer/hcl2template/parser.go:319 +0x168
+github.com/hashicorp/packer/hcl2template.(*PackerConfig).Initialize(0x400001d200)
+	github.com/hashicorp/packer/hcl2template/parser.go:274 +0x314
+github.com/hashicorp/packer/command.(*ValidateCommand).RunContext(0x4000378210, {0x400004e1a0?, 0x1?}, 0x4000434a10)
+	github.com/hashicorp/packer/command/validate.go:59 +0x58
+github.com/hashicorp/packer/command.(*ValidateCommand).Run(0x4000378210, {0x400004e1a0, 0x1, 0x1})
+	github.com/hashicorp/packer/command/validate.go:25 +0xb0
+github.com/mitchellh/cli.(*CLI).Run(0x40000f8a00)
+	github.com/mitchellh/cli/cli.go:261 +0x4cc
+main.wrappedMain()
+	github.com/hashicorp/packer/main.go:249 +0xa5c
+main.realMain()
+	github.com/hashicorp/packer/main.go:50 +0xbc
+main.main()
+	github.com/hashicorp/packer/main.go:36 +0x20
