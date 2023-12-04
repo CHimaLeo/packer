@@ -8,10 +8,13 @@ set -e
 # Establecer el frontend de debconf a noninteractive
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-get purge javascript-common &&
+
 # Actualizar la lista de paquetes
 sudo apt-get update &&
+
 # Descargar e instalar el script de configuración de NodeSource
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash - &&
+
 # Instalar los paquetes
 sudo apt-get install -y "${paquetes[@]}"
 
